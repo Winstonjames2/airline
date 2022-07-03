@@ -6,7 +6,7 @@ jobs:
       - image: cimg/python:3.10
     steps:
       - checkout
-      - run: python manage.py test myapp
+      - run: python requirements.txt
   test:
     docker:
       - image: cimg/python:3.10
