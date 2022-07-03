@@ -43,15 +43,6 @@ jobs:
 workflows:
   AirplaneProject: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
-    - run:
-    name: run tests
-    command: |
-      . venv/bin/activate
-      mkdir test-results
-      pytest --junitxml=test-results/junit.xml tests
-
-  - store_test_results:
-      path: test-results
-
+    
     jobs:
       - build-and-test
