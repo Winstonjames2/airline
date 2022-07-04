@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  test-and-lint:
+  test-airpline-app:
     docker:
       - image: cimg/python:3.10.1
     steps:
@@ -13,9 +13,9 @@ jobs:
           name: TEST APP
           command: |
              cd airplane
-             python manage.py runserver
+             python manage.py test myapp
 
 workflows:
   build-and-test-workflow:
     jobs:
-      - test-and-lint
+      - test-airpline-app
