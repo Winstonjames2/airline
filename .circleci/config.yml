@@ -10,11 +10,13 @@ jobs:
           name: install dependencies
           command: pip install -r requirements.txt
       - run:
-          name: change direction
-          command: ./airplane
+          name: TEST APP
+          command: |
+             cd airplane
+             python manage.py test myapp
       - run:
           name: run tests
-          command: python manage.py test
+          command: dir
 
 workflows:
   build-and-test-workflow:
