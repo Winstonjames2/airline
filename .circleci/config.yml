@@ -11,7 +11,7 @@ jobs:
           command: pip install -r requirements.txt
       - run:
           name: change direction
-          command: cd airplane
+          command: ./airplane
       - run:
           name: run tests
           command: python manage.py test
