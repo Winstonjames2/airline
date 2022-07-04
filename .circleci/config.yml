@@ -14,7 +14,7 @@ jobs:
           command: cd airplane
       - run:
           name: run tests
-          command: echo "HELLO WORLD"
+          command: dir
 
 workflows:
   build-and-test-workflow:
