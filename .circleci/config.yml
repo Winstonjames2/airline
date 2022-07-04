@@ -12,10 +12,9 @@ jobs:
       - run:
           name: change direction
           command: cd airplane
-working_directory: ~/airplane
       - run:
           name: run tests
-          command: python manage.py test
+          command: echo "HELLO WORLD"
 
 workflows:
   build-and-test-workflow:
