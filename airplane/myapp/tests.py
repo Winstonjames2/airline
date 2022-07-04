@@ -58,6 +58,6 @@ class Tests(TestCase):
         a2=Airport.objects.get(code="BBB")
         f=Flight.objects.get(origin=a1,destination=a2,duration=100)
         c=Client()
-        response=c.get(f"/{f.id}")
+        response=c.get(f"/{f.id}"
         print(response.context["passengers"])
         self.assertEqual(response.context["passengers"].count(),1)
