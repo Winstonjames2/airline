@@ -16,6 +16,6 @@ jobs:
              python manage.py test myapp
 
 workflows:
-  build-and-test-workflow:
+  test airline app:
     jobs:
       - test-airline-app
