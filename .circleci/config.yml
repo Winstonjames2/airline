@@ -11,9 +11,12 @@ jobs:
           command: pip install -r requirements.txt
       - run:
           name: run tests
-          command: airplane/python manage.py test
+          command: airplane/: python manage.py test
 
 workflows:
   build-and-test-workflow:
     jobs:
       - test-and-lint
+docker:
+  FROM +build
+  ENTRYPOINT ["python", "manage.py"," runserver", "0.0.0.0:8000"]
