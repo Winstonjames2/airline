@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  test airpline app:
+  test-airpline-app:
     docker:
       - image: cimg/python:3.10.1
     steps:
@@ -18,4 +18,4 @@ jobs:
 workflows:
   build-and-test-workflow:
     jobs:
-      - test airline app
+      - test-airline-app
