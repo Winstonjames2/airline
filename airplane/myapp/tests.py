@@ -56,7 +56,7 @@ class Tests(TestCase):
         """Testing Passengers Info Correction"""
         a1=Airport.objects.get(code="AAA")
         a2=Airport.objects.get(code="BBB")
-        f=Flight.objects.get(origin=a1,destination=a2)
+        f=Flight.objects.get(origin=a1,destination=a2,duration=100)
         c=Client()
         response=c.get(f"/{f.id}")
         self.assertEqual(response.context["passengers"].count(),1)
