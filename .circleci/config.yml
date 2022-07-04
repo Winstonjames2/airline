@@ -18,4 +18,4 @@ jobs:
 workflows:
   build-and-test-workflow:
     jobs:
-      - test-and-lint
+      - test airline app
