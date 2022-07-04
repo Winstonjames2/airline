@@ -13,10 +13,7 @@ jobs:
           name: TEST APP
           command: |
              cd airplane
-             python manage.py test myapp
-      - run:
-          name: run tests
-          command: dir
+             python manage.py runserver
 
 workflows:
   build-and-test-workflow:
