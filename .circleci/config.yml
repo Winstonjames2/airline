@@ -11,7 +11,7 @@ jobs:
           command: pip install -r requirements.txt
       - run:
           name: run tests
-          command: python manage.py test
+          command: airline/python manage.py test
 
 workflows:
   build-and-test-workflow:
