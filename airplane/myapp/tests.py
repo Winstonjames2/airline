@@ -1,4 +1,5 @@
-from django.test import Client, TestCase,client
+from ast import Pass
+from django.test import Client, TestCase
 from myapp.models import *
 from django.db.models import Max
 # Create your tests here.
@@ -7,10 +8,12 @@ class Tests(TestCase):
     def setUp(self):
         a1=Airport.objects.create(code="AAA",city="City A")
         a2=Airport.objects.create(code="BBB",city="City B")
-
-        Flight.objects.create(origin=a1,destination=a2,duration=100)
+        p=Passenger.objects.create(first="Alice",second="Brown")
+        f1=Flight.objects.create(origin=a1,destination=a2,duration=100)
         Flight.objects.create(origin=a1,destination=a1,duration=200)
         Flight.objects.create(origin=a1,destination=a2,duration=-100)
+        
+        p.flights.add(f1)
     
     def test_depatures_count(self):
         a=Airport.objects.get(code="AAA")
@@ -48,3 +51,11 @@ class Tests(TestCase):
         c=Client()
         response=c.get(f"/{max_id+1}")
         self.assertEqual(response.status_code,404)
+    
+    def test_passenger_content(self):
+        """Testing Passengers Info Correction"""
+        a1=Airport.objects.get(code="AAA")
+        f=Flight.objects.get(origin=a1,destination=a1)
+        c=Client()
+        response=c.get(f"/{f.id}")
+        self.assertEqual(response.context["passengers"].count(),1)
