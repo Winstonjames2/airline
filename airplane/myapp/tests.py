@@ -55,7 +55,7 @@ class Tests(TestCase):
     def test_passenger_content(self):
         """Testing Passengers Info Correction"""
         a1=Airport.objects.get(code="AAA")
-        a2=Airport.objects.create(code="BBB",city="City B")
+        a2=Airport.objects.get(code="BBB")
         f=Flight.objects.get(origin=a1,destination=a2)
         c=Client()
         response=c.get(f"/{f.id}")
